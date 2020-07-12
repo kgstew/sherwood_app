@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from './Typography';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: theme.spacing(8),
         marginBottom: theme.spacing(4)
@@ -81,10 +81,10 @@ const styles = (theme) => ({
         left: 'calc(50% - 9px)',
         transition: theme.transitions.create('opacity')
     }
-});
+}));
 
 function ProductCategories(props) {
-    const { classes } = props;
+    const classes = useStyles();
 
     const images = [
         {
@@ -172,4 +172,4 @@ ProductCategories.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductCategories);
+export default ProductCategories;

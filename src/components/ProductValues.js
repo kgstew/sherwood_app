@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from './Typography';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         overflow: 'hidden',
@@ -35,10 +35,10 @@ const styles = (theme) => ({
         position: 'absolute',
         top: -180
     }
-});
+}));
 
-function ProductValues(props) {
-    const { classes } = props;
+function ProductValues() {
+    const classes = useStyles();
 
     return (
         <section className={classes.root}>
@@ -107,4 +107,4 @@ ProductValues.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductValues);
+export default ProductValues;

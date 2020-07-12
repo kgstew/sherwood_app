@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from './Paper';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         backgroundImage: 'url(/static/onepirate/appCurvyLines.png)',
@@ -17,10 +17,11 @@ const styles = (theme) => ({
             padding: theme.spacing(8, 6)
         }
     }
-});
+}));
 
 function AppForm(props) {
-    const { children, classes } = props;
+    const classes = useStyles();
+    const { children } = props;
 
     return (
         <div className={classes.root}>
@@ -38,4 +39,4 @@ AppForm.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(AppForm);
+export default AppForm;

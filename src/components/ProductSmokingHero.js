@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from './Typography';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
@@ -26,10 +26,10 @@ const styles = (theme) => ({
     buoy: {
         width: 60
     }
-});
+}));
 
-function ProductSmokingHero(props) {
-    const { classes } = props;
+function ProductSmokingHero() {
+    const classes = useStyles();
 
     return (
         <Container className={classes.root} component="section">
@@ -50,4 +50,4 @@ ProductSmokingHero.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductSmokingHero);
+export default ProductSmokingHero;

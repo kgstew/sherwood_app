@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Container from '@material-ui/core/Container';
@@ -9,7 +9,7 @@ import TextField from './TextField';
 import Snackbar from './Snackbar';
 import Button from './Button';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: theme.spacing(10),
         marginBottom: 0,
@@ -56,10 +56,10 @@ const styles = (theme) => ({
         width: '100%',
         maxWidth: 600
     }
-});
+}));
 
 function ProductCTA(props) {
-    const { classes } = props;
+    const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
     const handleSubmit = (event) => {
@@ -108,4 +108,4 @@ ProductCTA.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductCTA);
+export default ProductCTA;

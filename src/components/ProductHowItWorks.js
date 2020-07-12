@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Button from './Button';
 import Typography from './Typography';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         backgroundColor: theme.palette.secondary.light,
@@ -49,10 +49,10 @@ const styles = (theme) => ({
     button: {
         marginTop: theme.spacing(8)
     }
-});
+}));
 
-function ProductHowItWorks(props) {
-    const { classes } = props;
+function ProductHowItWorks() {
+    const classes = useStyles();
 
     return (
         <section className={classes.root}>
@@ -128,4 +128,4 @@ ProductHowItWorks.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductHowItWorks);
+export default ProductHowItWorks;

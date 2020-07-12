@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from './Button';
 import Typography from './Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 
 const backgroundImage = 'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400&q=80';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     background: {
         backgroundImage: `url(${backgroundImage})`,
         backgroundColor: '#7fc7d9', // Average color of the background image.
@@ -26,10 +26,10 @@ const styles = (theme) => ({
     more: {
         marginTop: theme.spacing(2)
     }
-});
+}));
 
 function ProductHero(props) {
-    const { classes } = props;
+    const classes = useStyles();
 
     return (
         <ProductHeroLayout backgroundClassName={classes.background}>
@@ -62,4 +62,4 @@ ProductHero.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductHero);
+export default ProductHero;

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import AppBar from './AppBar';
-import Toolbar, { styles as toolbarStyles } from './Toolbar';
+import Toolbar, { useStyles as toolbarStyles } from './Toolbar';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: 24
     },
@@ -33,10 +33,10 @@ const styles = (theme) => ({
     linkSecondary: {
         color: theme.palette.secondary.main
     }
-});
+}));
 
-function AppAppBar(props) {
-    const { classes } = props;
+function AppAppBar() {
+    const classes = useStyles();
 
     return (
         <div>
@@ -82,4 +82,4 @@ AppAppBar.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(AppAppBar);
+export default AppAppBar;

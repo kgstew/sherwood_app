@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import MuiSnackbar from '@material-ui/core/Snackbar';
 import Slide from '@material-ui/core/Slide';
 import CloseIcon from '@material-ui/icons/Close';
 import InfoIcon from '@material-ui/icons/Info';
 import IconButton from '@material-ui/core/IconButton';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
     content: {
         backgroundColor: theme.palette.secondary.light,
         color: theme.palette.text.primary,
@@ -34,14 +34,15 @@ const styles = (theme) => ({
     close: {
         padding: theme.spacing(1)
     }
-});
+}));
 
 function Transition(props) {
     return <Slide {...props} direction="down" />;
 }
 
 function Snackbar(props) {
-    const { classes, onClose, message, ...other } = props;
+    const classes = useStyles();
+    const { onClose, message, ...other } = props;
 
     return (
         <MuiSnackbar
@@ -79,4 +80,4 @@ Snackbar.propTypes = {
     SnackbarContentProps: PropTypes.object
 };
 
-export default withStyles(styles)(Snackbar);
+export default Snackbar;
