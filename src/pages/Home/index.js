@@ -7,12 +7,11 @@ import ProductHero from '../../components/ProductHero';
 import ProductValues from '../../components/ProductValues';
 import ProductHowItWorks from '../../components/ProductHowItWorks';
 import ProductCTA from '../../components/ProductCTA';
-import AppAppBar from '../../components/AppAppBar';
 
 function Index() {
+    console.log('home');
     return (
         <React.Fragment>
-            <AppAppBar />
             <ProductHero />
             <ProductValues />
             <ProductCategories />

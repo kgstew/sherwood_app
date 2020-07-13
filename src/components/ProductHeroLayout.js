@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
@@ -60,13 +61,7 @@ function ProductHeroLayout(props) {
                 {children}
                 <div className={classes.backdrop} />
                 <div className={clsx(classes.background, backgroundClassName)} />
-                <img
-                    className={classes.arrowDown}
-                    src="/static/themes/onepirate/productHeroArrowDown.png"
-                    height="16"
-                    width="12"
-                    alt="arrow down"
-                />
+                <ArrowDownwardIcon className={classes.arrowDown} />
             </Container>
         </section>
     );
@@ -74,8 +69,7 @@ function ProductHeroLayout(props) {
 
 ProductHeroLayout.propTypes = {
     backgroundClassName: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    classes: PropTypes.object.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default ProductHeroLayout;

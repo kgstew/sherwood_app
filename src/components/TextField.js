@@ -105,7 +105,6 @@ function TextField(props) {
 }
 
 TextField.propTypes = {
-    classes: PropTypes.object.isRequired,
     InputLabelProps: PropTypes.object,
     InputProps: PropTypes.object,
     noBorder: PropTypes.bool,

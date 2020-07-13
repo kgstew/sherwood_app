@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from './Button';
 import Typography from './Typography';
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function ProductHero(props) {
+function ProductHero() {
     const classes = useStyles();
 
     return (
@@ -57,9 +56,5 @@ function ProductHero(props) {
         </ProductHeroLayout>
     );
 }
-
-ProductHero.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default ProductHero;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
@@ -45,9 +44,5 @@ function ProductSmokingHero() {
         </Container>
     );
 }
-
-ProductSmokingHero.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default ProductSmokingHero;

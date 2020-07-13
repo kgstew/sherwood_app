@@ -1,12 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import AppBar from './AppBar';
+import MaterialLink from '@material-ui/core/Link';
 import Toolbar, { useStyles as toolbarStyles } from './Toolbar';
+import { Link, Switch, Route } from 'react-router-dom';
+import HouseRules from '../pages/HouseRules';
+import Home from '../pages/Home';
+import { AppBar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+    appBar: {
+        color: theme.palette.common.white
+    },
+    content: {
+        paddingTop: 70
+    },
     title: {
         fontSize: 24
     },
@@ -35,51 +42,51 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function AppAppBar() {
+const Navigation = () => {
     const classes = useStyles();
 
     return (
         <div>
-            <AppBar position="fixed">
+            <AppBar className={classes.appBar} elevation={0} position="fixed">
                 <Toolbar className={classes.toolbar}>
                     <div className={classes.left} />
-                    <Link
+                    <MaterialLink
                         variant="h6"
                         underline="none"
                         color="inherit"
                         className={classes.title}
-                        href="/premium-themes/onepirate/"
+                        to="/"
+                        component={Link}
                     >
-                        {'onepirate'}
-                    </Link>
+                        Sherwood
+                    </MaterialLink>
                     <div className={classes.right}>
-                        <Link
+                        <MaterialLink
+                            variant="h6"
+                            underline="none"
                             color="inherit"
-                            variant="h6"
-                            underline="none"
-                            className={classes.rightLink}
-                            href="/premium-themes/onepirate/sign-in/"
+                            className={classes.title}
+                            to="/house_rules"
+                            component={Link}
                         >
-                            {'Sign In'}
-                        </Link>
-                        <Link
-                            variant="h6"
-                            underline="none"
-                            className={clsx(classes.rightLink, classes.linkSecondary)}
-                            href="/premium-themes/onepirate/sign-up/"
-                        >
-                            {'Sign Up'}
-                        </Link>
+                            House Rules
+                        </MaterialLink>
                     </div>
                 </Toolbar>
             </AppBar>
-            <div className={classes.placeholder} />
+            <div className={classes.content}>
+                <Switch>
+                    <Route path="/house_rules">
+                        <HouseRules />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+                <div className={classes.placeholder} />
+            </div>
         </div>
     );
-}
-
-AppAppBar.propTypes = {
-    classes: PropTypes.object.isRequired
 };
 
-export default AppAppBar;
+export default Navigation;

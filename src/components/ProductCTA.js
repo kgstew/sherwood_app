@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
@@ -58,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function ProductCTA(props) {
+function ProductCTA() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -103,9 +102,5 @@ function ProductCTA(props) {
         </Container>
     );
 }
-
-ProductCTA.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default ProductCTA;

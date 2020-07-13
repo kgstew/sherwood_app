@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -102,9 +101,5 @@ function ProductValues() {
         </section>
     );
 }
-
-ProductValues.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default ProductValues;

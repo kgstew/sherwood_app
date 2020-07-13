@@ -76,7 +76,6 @@ function Snackbar(props) {
 }
 
 Snackbar.propTypes = {
-    classes: PropTypes.object.isRequired,
     SnackbarContentProps: PropTypes.object
 };
 
